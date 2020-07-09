@@ -1,0 +1,28 @@
+CREATE TABLE `playlist`
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR
+(128) NOT NULL,
+  genre VARCHAR
+(128) NOT NULL,
+  UNIQUE
+(title)
+);
+
+CREATE TABLE `track`
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  playlist_id INT NOT NULL,
+  title VARCHAR
+(128) NOT NULL,
+  artist VARCHAR
+(128) NOT NULL,
+  album_picture VARCHAR
+(256) NOT NULL,
+  youtube_url VARCHAR
+(128) NOT NULL,
+  FOREIGN KEY
+(playlist_id) REFERENCES playlist
+(id)  ON
+DELETE CASCADE
+);
